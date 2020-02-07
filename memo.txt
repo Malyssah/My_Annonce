@@ -30,6 +30,8 @@ rajout admin:
                                 Reste à faire:
 /*****************************************************************************/
     debug session : la session ne suis pas de page en page ... 
+ +   ( ! ) Notice: Undefined index: username in C:\wamp64\www\MY_annonce\controllers\main.php on line 351
+
 
 En cour : sur détail annonce : retour à la liste des annonces d'une rubrique
 Modifier une annonce
