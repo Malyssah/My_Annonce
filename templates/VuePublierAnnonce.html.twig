@@ -1,0 +1,86 @@
+{% include('base.html.twig') %}
+
+<div id="page-content-wrapper">
+            <div class="container-fluid">
+                <div class="row justify-content-center">
+                    <div class="col-md-6">
+                        <div class="card">
+                            <header class="card-header">
+                                <h4 class="card-title mt-2">Publier une annonce</h4>
+                            </header>
+                            <article class="card-body">
+                                <form method="post" class="needs-validation" novalidate>
+                                    <div class="form-group ">
+                                        <span for="formControlSelect2" class="help-block" required>Sélectionnez une rubrique*</span>
+                                        <select class="select form-control" id="select" id="formControlSelect2" name="select">
+                                            <option selected>Sélectionnez une rubrique</option>
+                                            {% for r in rubriques %}
+                                            <option value={{ r.Id }}>{{ r.libelle }}</option>
+                                            {% endfor %}
+                                        </select>
+                                    </div>
+                                    <div class="form-group">
+                                        <span class="help-block" for="validationCustom01">titre de votre annonce*</span>
+                                        <input class="form-control" id="Titre" name="entete" type="text" placeholder="Je vend Maurice !" id="validationCustom01" required/>
+                                        <div class="valid-feedback">
+                                            Cela semble bon!
+                                        </div>
+                                        <div class="invalid-feedback">
+                                            S'il vous plaît fournissez un titre à votre annonce..
+                                        </div>
+                                    </div>
+                                    <div class="form-group ">
+                                        <label class="control-label requiredField" for="textarea">Votre annonce*</label>
+                                        <textarea class="form-control"  cols="40" id="textarea" name="corp" rows="10" id="validationCustom01" required>
+                                        </textarea>
+                                        <div class="valid-feedback">
+                                                Cela semble bon!
+                                            </div>
+                                            <div class="invalid-feedback">
+                                                S'il vous plaît fournissez un titre à votre annonce..
+                                            </div>
+                                    </div>
+                                    <!-- <div class="photos bg-white">
+                                        <p>Vous pouvez ajouter jusqu'à 3 photos</p>
+                                        <a type="button" class="p-3 bg-white" data-toggle="modal" data-target="#ModalCenter"><i class="fas fa-camera fa-2x camera"></i></a>
+                                        <a type="button" class="p-3 bg-white" data-toggle="modal" data-target="#ModalCenter"><i class="fas fa-camera fa-2x camera"></i></a>
+                                        <a type="button" class="p-3 bg-white" data-toggle="modal" data-target="#ModalCenter"><i class="fas fa-camera fa-2x camera"></i></a>
+                                    </div> -->
+                                    <!--- MODAL -->
+                                    <div class="modal fade" id="ModalCenter" tabindex="-1" role="dialog" aria-labelledby="ModalCenterTitle" aria-hidden="true">
+                                        <div class="modal-dialog modal-dialog-centered" role="document">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <h5 class="modal-title" id="ModalLongTitle">Importer une photo</h5>
+                                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                        <span aria-hidden="true">&times;</span>
+                                                    </button>
+                                                </div>
+                                                <div class="modal-body">
+                                                    <div class="custom-file">
+                                                        <input type="file" class="custom-file-input" id="customFileLang" lang="fr">
+                                                        <label class="custom-file-label" for="customFileLang">Sélectionnez vos photos</label>
+                                                    </div>
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Annuler</button>
+                                                    <button type="button" class="btn btn-primary">Importer</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- /#Modal -->
+                                    <div class="form-group">
+                                            <input type="hidden" value="publierAnnonce" name="action" />
+                                        <button class="btn btn-danger my-4 btn-block" name="submit" type="submit">Envoyer</button>
+                                    </div>
+                                </form>
+                            </article>
+                            <div class="border-top card-body text-center">Vous devez être connecté pour créer une annonce <a href="{{ url }}?action=identifierUtilisateur"> Connectez vous</a></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- /#page-content-wrapper -->
+    </div>

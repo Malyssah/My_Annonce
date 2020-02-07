@@ -1,0 +1,58 @@
+/*****************************************************************************/
+                                Fini
+/*****************************************************************************/
+Accueil:
+    afficher accueil                                            //OK
+    affichage de la nav en fonction de la connection  ou non    // ok
+
+Rubrique: 
+     Lister rubrique                                //OK
+     Ajouter rubriques                              //OK
+     Afficher rubriques sur chaque page (sidebar)   // ok
+    
+Utilisateur:
+    Identifier Utilisateur  // OK
+    Inscrire Utilisateur    // ok
+    session utilisateur     // ok
+    se déconnecter          // ok
+
+Annonce:
+    Publier une annonce                 // ok
+    Trier les annonces par rubrique     //ok
+    Afficher  détail annonce            //ok
+
+rajout admin:
+    integrer admin dans la bdd  // ok
+    booleen défaut sur false    // ok
+    modifier domain utilisateur // ok
+
+/*****************************************************************************/
+                                Reste à faire:
+/*****************************************************************************/
+    debug session : la session ne suis pas de page en page ... 
+
+En cour : sur détail annonce : retour à la liste des annonces d'une rubrique
+Modifier une annonce
+supprimer une annonce
+Modifier rubrique
+supprimer rubrique
+
+faire des messages d'alerte un peu plus montrable
+
+
+/**
+
+js menu burger
+
+
+$(document).ready(function () {
+
+    // Nav Slide Toggle
+    $('i.icon').click(function () {
+        $('.nav-list').slideToggle()
+    });
+
+
+
+
+*/

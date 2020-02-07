@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!--- import google font-->
+    <link href="https://fonts.googleapis.com/css?family=Noto+Sans+KR&display=swap" rel="stylesheet">
+    <!--- import Bootstrap CSS-->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <!--- import fontawesome-->
+    <script src="https://kit.fontawesome.com/e5e3515987.js" crossorigin="anonymous"></script>
+    <!--- import style css-->
+    <link rel="stylesheet" href="../css/style.css">
+    <title>My Annonce</title>
+</head>
+
+<body>
+    <!-- Navbar haut -->
+    <nav class="navbar navbar-light bg-danger justify-content-between">
+        <!-- Logo -->
+        <a class="navbar-brand" href="../controllers/main.php"><span class="logo"> M</span><i class="fab fa-angellist text-light fa-2x"></i><span class="logo"> Annonce</span></a>
+        <form class="form-inline">
+            <a class="btn btn-outline-light" href="../controllers/main.php" role="button"><i class="fas fa-home"> </i> ACCUEIL</a>
+        </form>
+        <!-- /#Logo -->
+
+        <!-- Navbar: conditions des liens de navigation-->
+        {% if pseudo %} {#% si utilisateur connecté  %} #}
+            <form class="form-inline">
+                <a class="btn btn-outline-light" href="{{ url }}?action=publierAnnonce" role="button"><i class="fas fa-plus"></i> Publier une annonce</a>
+            </form>
+        {% else %} {#% si utilisateur non connecté  %} #}
+            <form class="form-inline">
+                <a class="btn btn-outline-light disabled" href="{{ url }}?action=publierAnnonce" role="button"><i class="fas fa-plus"></i> Publier une annonce</a>
+            </form>
+        {% endif %}
+        <!-- dropdown: conditions des liens de navigation -->
+        {% if pseudo %} {#% si utilisateur connecté  %} #}
+            <div class="dropdown">
+                <button class="btn btn-outline-light dropdown-toggle " type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <i class="far fa-user"></i> {{ pseudo }}
+                </button>
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                    <a class="dropdown-item" href="#">Mon compte</a>
+                    <a class="dropdown-item" href="{{ url }}?action=listerAnnoncesUtilisateur">Gérer mes annonces</a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href="{{ url }}?action=deconnecterUtilisateur">Se déconnecter</a>
+                </div>
+            </div>  
+
+        {% else %} {#% si utilisateur non connecté  %} #}
+            <div class="dropdown">
+                <button class="btn btn-outline-light dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <i class="far fa-user"></i> Connection
+                </button>
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                    <a class="dropdown-item" href="{{ url }}?action=identifierUtilisateur">Se connecter</a>
+                    <a class="dropdown-item" href="{{ url }}?action=inscrireUtilisateur">S'inscrire</a>
+                </div>
+            </div>
+        {% endif %}
+    </nav>
+    <!-- /#Navbar haut -->
+
+    <br><br>
+    <!-- container recherche -->
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="input-group input-group-lg col-auto">
+                <input type="text" class="search-query form-control border border-danger" placeholder="Rechercher" />
+                <div class="input-group-btn">
+                    <div class="input-group-append">
+                        <button class="btn btn-danger" type="button">
+                            <i class="fas fa-search fa-2x"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- /#container recherche -->
+    <br><br><br>
+
+  <!-- Container sidebar -->
+<div class="d-flex" id="wrapper">
+        <!-- Sidebar -->
+        <div class="bg-light border-right" id="sidebar-wrapper">
+            <div class="sidebar-heading bg-danger blanc">RUBRIQUES </div>
+            <div class="list-group list-group-flush">
+
+                <!-- Listage des rubriques (boucle for) + ajout du trie des annonces selon leur rubrique rubrique-->
+            {% for r in rubriques %}
+                <a href="{{ url }}?action=listerAnnonces&idRub={{ r.id }}" class="list-group-item list-group-item-action bg-light">{{ r.libelle }}</a>
+            {% endfor %}
+                <!-- /#Listage des rubriques (boucle for)-->
+
+            </div>
+            A modifier : reservé Admin<br>
+            <a href={{ url }}?action=ajouterRubrique> Ajouter Rubrique</a><br>
+            <a href={{ url }}?action=modifierRubrique> Modifier Rubrique</a><br>
+            <a href={{ url }}?action=supprimerRubrique> Supprimer Rubrique</a><br>
+
+            
+        </div>
+        <!-- /#sidebar-wrapper -->
+
+        
+        <!--- import Bootstrap Script-->
+        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+        <!--- import Script-->
+        <script src="../scripts/script.js"></script>
+
+</body>
+
+</html>

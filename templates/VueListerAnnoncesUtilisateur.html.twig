@@ -1,0 +1,34 @@
+{% include('base.html.twig') %}
+
+
+
+<div id="page-content-wrapper">
+    <div class="container-fluid">
+        <h1 class="mt-5 text-center">Annonces Utilisateur</h1>
+        <section class="movies" id="movies">
+            <div class="row">
+                {% for annonce in annonces %}
+                    <div class="col-lg-3 col-md-4 col-sm-6">
+                        <article class="card">
+                            <header class="title-header">
+                                <h3> {{annonce.entete}}</h3>
+                            </header>
+                            <div class="card-block">
+                                <div class="img-card">
+                                    <img src="https://placehold.it/300x150" alt="Movie" class="w-100" />
+                                </div>
+                                    <p class="tagline card-text text-xs-center">
+                                            {{annonce.date|date('d/m/Y')}}
+                                    </p>
+                                    <a href="{{ url }}?action=afficherDetailAnnonce&idAnnonce={{ annonce.id }}" class="btn btn-danger btn-block"><i class="fa fa-eye"></i> Aller voir</a>
+                                    <!-- <input type="hidden" value="afficherDetailAnnonce" name="action" /> -->
+                            </div>
+                        </article>
+                    </div>
+                {% endfor %}
+            </div>
+            <br>
+        </section>
+    </div>
+</div>
+    

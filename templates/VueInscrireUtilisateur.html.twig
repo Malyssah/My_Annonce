@@ -1,0 +1,89 @@
+{% include('base.html.twig') %}
+
+<div id="page-content-wrapper">
+    <div class="container-fluid">
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <div class="card">
+                    <header class="card-header">
+                        <h4 class="card-title mt-2">Créer un compte</h4>
+                    </header>
+                    <article class="card-body">
+                        <form class="needs-validation" action="{{ url }}" method="POST" novalidate>
+                            <div class="form-row">
+                                {# prénom #}
+                                <div class="col form-group">
+                                    <label for="validationCustom01">Prénom* </label>
+                                    <input type="text" class="form-control" placeholder="Jean-Eude" id="validationCustom01" name="prenom" required>
+                                    {# vérif js #}
+                                    <div class="valid-feedback">
+                                        Cela semble bon!
+                                    </div>
+                                    <div class="invalid-feedback">
+                                        S'il vous plaît fournissez un prénom valide..
+                                    </div>
+                                </div>
+                                {# nom #}
+                                <div class="col form-group">
+                                    <label>Nom*</label>
+                                    <input type="text" class="form-control" placeholder="Legrand" id="validationCustom01" name="nom" required>
+                                    {# vérif js #}
+                                    <div class="valid-feedback">
+                                        Cela semble bon!
+                                    </div>
+                                    <div class="invalid-feedback">
+                                        S'il vous plaît fournissez un nom valide..
+                                    </div>
+                                </div>
+                            </div>
+                            {# username #}
+                            <div class="col form-group">
+                                <label for="validationCustom01">Pseudo* </label>
+                                <input type="text" class="form-control" placeholder="Pseudo" id="validationCustom01" name="username" required>
+                                {# vérif js #}
+                                <div class="valid-feedback">
+                                    Cela semble bon!
+                                </div>
+                                <div class="invalid-feedback">
+                                    S'il vous plaît fournissez un pseudo valide..
+                                </div>
+                            </div>
+                            {# email #}
+                            <div class="form-group">
+                                <label for="validationCustom01">Adresse Mail*</label>
+                                <input type="email" class="form-control" placeholder="jean.eude@gtest.com" id="validationCustom01" name="email" required>
+                                <small class="form-text text-muted">Nous ne partagerons jamais votre email avec qui que ce soit.</small>
+                                {# vérif js #}
+                                <div class="valid-feedback">
+                                    Cela semble bon!
+                                </div>
+                                <div class="invalid-feedback">
+                                    S'il vous plaît fournissez une adresse mail valide..
+                                </div>
+                            </div>
+                            {# mot de passe #}
+                            <div class="form-group">
+                                <label for="validationCustom01">Mot de passe*</label>
+                                <input class="form-control" type="password" placeholder="Mot de passe" id="validationCustom01" id="pass" name="mdp" required>
+                                {# vérif js #}
+                                <div class="valid-feedback">
+                                    Cela semble bon!
+                                </div>
+                                <div class="invalid-feedback">
+                                    S'il vous plaît fournissez un mot de passe valide..
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <button type="submit" class="btn btn-danger btn-block">S'inscrire </button>
+                                <input type="hidden" value="inscrireUtilisateur" name="action" />
+                            </div>
+                            <small class="text-muted">En cliquant sur le bouton "Inscription", vous confirmez que vous acceptez nos <br> Conditions d'utilisation et Politique de confidentialité.</small>
+                        </form>
+                    </article>
+                    <div class="border-top card-body text-center">Déjà un compte? <a href="{{ url }}?action=identifierUtilisateur">Connectez vous</a></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
