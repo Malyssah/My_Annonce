@@ -44,7 +44,7 @@ faire des messages d'alerte un peu plus montrable
 
 /**
 
-js menu burger
+ MEMO :js menu burger
 
 
 $(document).ready(function () {
